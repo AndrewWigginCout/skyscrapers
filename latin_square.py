@@ -5,7 +5,6 @@ Created on Sun Oct  3 14:22:59 2021
 @author: X
 """
 import copy
-N=5
 #def latin_square(g):
 #    for i in range(16):
 #        if g[i/4][i%4]=0:
@@ -47,25 +46,37 @@ def find_empty(g):
 count=0
 full=''
 def guess(g,depth=0):
-    #rv=[]
-    #print("depth=",depth)
-    #printg(g)
+    rv=[]
+    #print("depth={}\n{}".format(depth,printg(g)))
     if solved(g):
         #printg(g)
-        global full
-        full+=printg(g)
+        #global full
+        #full+=printg(g)
         
-        return 
+        return[copy.deepcopy(g)]
     y,x = find_empty(g)
     #print(y,x)
     available = list_available(y,x,g)
     for possible in available:
         g[y][x] = possible
-        guess(g,depth+1)
+        rv.extend(guess(g,depth+1))
         g[y][x]= 0
-            
+    return rv
+N=3
 g=[
    [0]*N for i in range(N)
    ]
+g2=[
+    [1,1,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0]
+    ]
+#def decodeg(n):
+#    for ch in :
+#        
 
-guess(g)
+rv=guess(g)
+
+for each in rv:
+    print(printg(each))
