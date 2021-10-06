@@ -132,9 +132,8 @@ def my_solve_puzzle(clues):
     return rv2
 def solve_puzzle(clues):
     solution=my_solve_puzzle(clues)[0]
-    y = ( tuple(row) for row in solution )
-    
-    return y
+    y = [ tuple(row) for row in solution ]
+    return tuple(y)
 
 clues = (
 ( 2, 2, 1, 3,  
