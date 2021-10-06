@@ -124,12 +124,17 @@ def valid_skyscraper_grid(g,clues):
         if count!=clues[j+4]: return False
     return True    
 
-def solve_puzzle(clues):
+def my_solve_puzzle(clues):
     rv2=[]
     for each in rv:
         if valid_skyscraper_grid(each,clues):
             rv2.append(each)
     return rv2
+def solve_puzzle(clues):
+    solution=my_solve_puzzle(clues)[0]
+    y = ( tuple(row) for row in solution )
+    
+    return y
 
 clues = (
 ( 2, 2, 1, 3,  
